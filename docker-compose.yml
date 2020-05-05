@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  
+  app:
+    build: "./nest-app"
+    depends_on:
+      - math
+    volumes:
+      - ./nest-app:/usr/src/app
+    environment:
+      - PORT=8000
+      - HOST=math
+    ports: 
+      - 8000:8000
+
+  math:
+    build: "./math-microservice"
+    volumes:
+      - ./math-microservice:/usr/src/app
+    environment:
+      - PORT=8000
+      - HOST=math
+    ports:
+      - 8001:8001

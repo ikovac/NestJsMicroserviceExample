@@ -8,7 +8,8 @@ const logger = new Logger('Main');
 const microserviceOptions: MicroserviceOptions = {
   transport: Transport.TCP,
   options: {
-    port: 8877
+    host: process.env.HOST,
+    port: 8001
   }
 };
 
